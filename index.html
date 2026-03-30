@@ -1,0 +1,742 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="WG | Calidad Digital - Desarrollo Web y Testing Profesional. Especialista en Landing Pages, QA/Testing, UX/UI y Mantenimiento Web.">
+    <meta name="keywords" content="desarrollo web, testing, QA, landing pages, UX/UI, mantenimiento web">
+    <meta name="author" content="WG">
+    <title>WG | Calidad Digital - Desarrollo Web & Testing Profesional</title>
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts - Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome para iconos -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        
+        .gradient-emerald {
+            background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+        }
+        
+        .text-gradient {
+            background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .hover-lift {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .hover-lift:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 20px 40px rgba(16, 185, 129, 0.15);
+        }
+        
+        .glass-effect {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        /* Animaciones */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .animate-fadeInUp {
+            animation: fadeInUp 0.8s ease-out;
+        }
+        
+        @keyframes pulse {
+            0%, 100% {
+                opacity: 1;
+            }
+            50% {
+                opacity: 0.7;
+            }
+        }
+        
+        .animate-pulse-slow {
+            animation: pulse 3s ease-in-out infinite;
+        }
+        
+        /* Scrollbar personalizado */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        
+        ::-webkit-scrollbar-track {
+            background: #0f172a;
+        }
+        
+        ::-webkit-scrollbar-thumb {
+            background: #10b981;
+            border-radius: 4px;
+        }
+        
+        ::-webkit-scrollbar-thumb:hover {
+            background: #059669;
+        }
+    </style>
+</head>
+<body class="bg-gradient-to-br from-slate-900 via-slate-950 to-black text-slate-100 overflow-x-hidden">
+    
+    <!-- Navegación -->
+    <nav class="fixed top-0 w-full glass-effect z-50 px-6 py-4" role="navigation" aria-label="Navegación principal">
+        <div class="container mx-auto flex justify-between items-center">
+            <div class="flex items-center space-x-2">
+                <div class="w-10 h-10 gradient-emerald rounded-lg flex items-center justify-center">
+                    <span class="text-white font-bold text-sm">WG</span>
+                </div>
+                <span class="text-xl font-bold text-gradient">Calidad Digital</span>
+            </div>
+            
+            <div class="hidden md:flex space-x-8">
+                <a href="#inicio" class="hover:text-emerald-400 transition-colors duration-300">Inicio</a>
+                <a href="#portafolio" class="hover:text-emerald-400 transition-colors duration-300">Portafolio</a>
+                <a href="#servicios" class="hover:text-emerald-400 transition-colors duration-300">Servicios</a>
+                <a href="#sobre-mi" class="hover:text-emerald-400 transition-colors duration-300">Sobre mí</a>
+                <a href="#proyecto" class="hover:text-emerald-400 transition-colors duration-300">Iniciar Proyecto</a>
+            </div>
+            
+            <button class="md:hidden text-emerald-400" onclick="toggleMobileMenu()" aria-label="Menú móvil">
+                <i class="fas fa-bars text-xl"></i>
+            </button>
+        </div>
+        
+        <!-- Menú móvil -->
+        <div id="mobileMenu" class="hidden md:hidden mt-4 glass-effect rounded-lg p-4">
+            <div class="flex flex-col space-y-3">
+                <a href="#inicio" class="hover:text-emerald-400 transition-colors duration-300">Inicio</a>
+                <a href="#portafolio" class="hover:text-emerald-400 transition-colors duration-300">Portafolio</a>
+                <a href="#servicios" class="hover:text-emerald-400 transition-colors duration-300">Servicios</a>
+                <a href="#sobre-mi" class="hover:text-emerald-400 transition-colors duration-300">Sobre mí</a>
+                <a href="#proyecto" class="hover:text-emerald-400 transition-colors duration-300">Iniciar Proyecto</a>
+            </div>
+        </div>
+    </nav>
+    
+    <!-- Hero Section -->
+    <section id="inicio" class="min-h-screen flex items-center justify-center px-6 pt-20" role="banner">
+        <div class="container mx-auto text-center max-w-4xl animate-fadeInUp">
+            <div class="mb-8">
+                <div class="inline-flex items-center space-x-2 bg-slate-900 rounded-full px-4 py-2 border border-emerald-900/30">
+                    <div class="w-2 h-2 bg-emerald-400 rounded-full animate-pulse-slow"></div>
+                    <span class="text-sm text-emerald-400">Disponible para proyectos</span>
+                </div>
+            </div>
+            
+            <h1 class="text-5xl md:text-7xl font-bold mb-6 leading-tight">
+                Desarrollo Web &
+                <span class="text-gradient">Testing</span>
+                <br>
+                de
+                <span class="text-gradient">Elite</span>
+            </h1>
+            
+            <p class="text-xl md:text-2xl text-slate-400 mb-8 leading-relaxed">
+                Transformo tus ideas en experiencias digitales impecables
+                <br>
+                con precisión quirúrgica y velocidad de ejecución
+            </p>
+            
+            <div class="flex flex-col sm:flex-row gap-4 justify-center mb-12">
+                <a href="#proyecto" class="gradient-emerald text-white px-8 py-4 rounded-lg font-semibold hover:shadow-lg hover:shadow-emerald-500/25 transition-all duration-300">
+                    Iniciar Proyecto
+                </a>
+                <a href="#servicios" class="border border-emerald-500 text-emerald-400 px-8 py-4 rounded-lg font-semibold hover:bg-emerald-500/10 transition-all duration-300">
+                    Ver Servicios
+                </a>
+            </div>
+            
+            <div class="flex justify-center space-x-8 text-slate-500">
+                <div class="text-center">
+                    <div class="text-3xl font-bold text-emerald-400">100%</div>
+                    <div class="text-sm">Responsive</div>
+                </div>
+                <div class="text-center">
+                    <div class="text-3xl font-bold text-emerald-400">24/7</div>
+                    <div class="text-sm">Soporte</div>
+                </div>
+                <div class="text-center">
+                    <div class="text-3xl font-bold text-emerald-400">A+</div>
+                    <div class="text-sm">Calidad</div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Sobre Mí Section -->
+    <section id="sobre-mi" class="py-20 px-6" role="region" aria-labelledby="sobre-mi-title">
+        <div class="container mx-auto max-w-4xl">
+            <h2 id="sobre-mi-title" class="text-4xl md:text-5xl font-bold text-center mb-12">
+                Estudios & <span class="text-gradient">Experiencia</span>
+            </h2>
+            
+            <div class="glass-effect rounded-2xl p-8 md:p-12 hover-lift">
+                <div class="flex flex-col md:flex-row items-center gap-8">
+                    <div class="w-32 h-32 overflow-hidden rounded-full flex-shrink-0 border-2 border-emerald-500/30">
+                        <img src="mi-foto.jpg" alt="Wendy Gutierrez" class="w-full h-full object-cover">
+                    </div>
+                    
+                    <div class="flex-1 text-center md:text-left">
+                        <h3 class="text-2xl font-bold mb-4 text-emerald-400">Wendy Gutierrez</h3>
+                        <p class="text-lg text-slate-300 leading-relaxed mb-6">
+                            Soy una profesional en formación de la carrera de Análisis y Desarrollo de Software (ADSO), con bases sólidas en lógica de programación y frontend. Cuento con experiencia activa en uTest, encontrando bugs en plataformas reales y garantizando la calidad de software. Me caracterizo por mi capacidad de aprendizaje acelerado y mi ojo quirúrgico para el detalle.
+                        </p>
+                        <div class="flex flex-wrap gap-3 justify-center md:justify-start">
+                            <span class="bg-slate-800 px-3 py-1 rounded-full text-sm border border-emerald-900/30">Estudiante ADSO</span>
+                            <span class="bg-slate-800 px-3 py-1 rounded-full text-sm border border-emerald-900/30">uTest Certified</span>
+                            <span class="bg-slate-800 px-3 py-1 rounded-full text-sm border border-emerald-900/30">QA Specialist</span>
+                            <span class="bg-slate-800 px-3 py-1 rounded-full text-sm border border-emerald-900/30">Frontend Developer</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Galería de Portafolio Élite Section -->
+    <section id="portafolio" class="py-20 px-6" role="region" aria-labelledby="portafolio-title">
+        <div class="container mx-auto max-w-6xl">
+            <h2 id="portafolio-title" class="text-4xl md:text-5xl font-bold text-center mb-4">
+                Proyectos de Simulación <span class="text-gradient">Profesional (ADSO)</span>
+            </h2>
+            <p class="text-xl text-slate-400 text-center mb-12">Soluciones empresariales desarrolladas con estándares de calidad industrial</p>
+            
+            <div class="grid md:grid-cols-2 gap-8">
+                <!-- Tarjeta 1: Veterinaria E-clinic -->
+                <div class="glass-effect rounded-2xl overflow-hidden hover-lift group">
+                    <div class="relative overflow-hidden h-64">
+                        <img 
+                            src="veterinaria1.png" 
+                            alt="Veterinaria E-clinic - Sistema Integral Veterinario" 
+                            class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                        >
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+                        <div class="absolute bottom-4 left-4 right-4">
+                            <h3 class="text-2xl font-bold text-emerald-400 mb-2">Veterinaria E-clinic</h3>
+                            <p class="text-white text-sm">Sistema Integral Veterinario</p>
+                        </div>
+                    </div>
+                    
+                    <div class="p-6">
+                        <p class="text-slate-300 mb-6 leading-relaxed">
+                            Plataforma de gestión de clínica veterinaria. Incluye agendamiento de citas, control de inventarios, gestión de historial clínico e integración de inventario.
+                        </p>
+                        
+                        <div class="flex flex-col sm:flex-row gap-3">
+                            <button onclick="openGallery('veterinaria')" class="gradient-emerald text-white px-6 py-3 rounded-lg font-semibold hover:shadow-lg hover:shadow-emerald-500/25 transition-all duration-300 flex items-center justify-center space-x-2">
+                                <i class="fas fa-images"></i>
+                                <span>Ver Más Capturas</span>
+                            </button>
+                            <a href="https://github.com/zonkedJ" target="_blank" class="gradient-emerald text-white px-6 py-3 rounded-lg font-semibold hover:shadow-lg hover:shadow-emerald-500/25 transition-all duration-300 flex items-center justify-center space-x-2">
+                                <i class="fab fa-github"></i>
+                                <span>Ver Código (GitHub)</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Tarjeta 2: Farmacia Digital -->
+                <div class="glass-effect rounded-2xl overflow-hidden hover-lift group">
+                    <div class="relative overflow-hidden h-64">
+                        <img 
+                            src="farmacia.png" 
+                            alt="Farmacia Digital - Plataforma Farmacéutica E-commerce" 
+                            class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                        >
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+                        <div class="absolute bottom-4 left-4 right-4">
+                            <h3 class="text-2xl font-bold text-emerald-400 mb-2">Farmacia Digital</h3>
+                            <p class="text-white text-sm">Plataforma Farmacéutica (E-commerce)</p>
+                        </div>
+                    </div>
+                    
+                    <div class="p-6">
+                        <p class="text-slate-300 mb-6 leading-relaxed">
+                            E-commerce y sistema de gestión para farmacia. Enfoque en carrito de compras, búsqueda avanzada, agendamiento de citas e historial.
+                        </p>
+                        
+                        <div class="flex flex-col sm:flex-row gap-3">
+                            <button onclick="openGallery('farmacia')" class="gradient-emerald text-white px-6 py-3 rounded-lg font-semibold hover:shadow-lg hover:shadow-emerald-500/25 transition-all duration-300 flex items-center justify-center space-x-2">
+                                <i class="fas fa-images"></i>
+                                <span>Ver Más Capturas</span>
+                            </button>
+                            <a href="https://github.com/zonkedJ" target="_blank" class="gradient-emerald text-white px-6 py-3 rounded-lg font-semibold hover:shadow-lg hover:shadow-emerald-500/25 transition-all duration-300 flex items-center justify-center space-x-2">
+                                <i class="fab fa-github"></i>
+                                <span>Ver Código (GitHub)</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Servicios Section -->
+    <section id="servicios" class="py-20 px-6 bg-slate-900/50" role="region" aria-labelledby="servicios-title">
+        <div class="container mx-auto max-w-6xl">
+            <h2 id="servicios-title" class="text-4xl md:text-5xl font-bold text-center mb-4">
+                Mis <span class="text-gradient">Servicios</span>
+            </h2>
+            <p class="text-xl text-slate-400 text-center mb-12">Soluciones digitales profesionales para tu negocio</p>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <!-- Landing Pages -->
+                <div class="glass-effect rounded-xl p-6 hover-lift group">
+                    <div class="w-14 h-14 gradient-emerald rounded-lg flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
+                        <i class="fas fa-rocket text-white text-xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3 text-emerald-400">Landing Pages</h3>
+                    <p class="text-slate-400 mb-4">Páginas de alta conversión diseñadas para capturar leads y vender tus productos o servicios.</p>
+                    <ul class="text-sm text-slate-500 space-y-2">
+                        <li><i class="fas fa-check text-emerald-400 mr-2"></i>Diseño responsive</li>
+                        <li><i class="fas fa-check text-emerald-400 mr-2"></i>Optimización SEO</li>
+                        <li><i class="fas fa-check text-emerald-400 mr-2"></i>Integración con formularios</li>
+                    </ul>
+                </div>
+                
+                <!-- QA/Testing -->
+                <div class="glass-effect rounded-xl p-6 hover-lift group">
+                    <div class="w-14 h-14 gradient-emerald rounded-lg flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
+                        <i class="fas fa-bug text-white text-xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3 text-emerald-400">QA/Testing</h3>
+                    <p class="text-slate-400 mb-4">Pruebas exhaustivas para garantizar la calidad y funcionalidad de tu aplicación web.</p>
+                    <div class="bg-gradient-to-r from-emerald-500/20 to-green-500/20 rounded-lg p-3 mb-3 border border-emerald-500/30">
+                        <p class="text-sm font-semibold text-emerald-400">
+                            <i class="fas fa-gift mr-2"></i>Auditoría Gratis
+                        </p>
+                        <p class="text-xs text-slate-400">Análisis inicial de calidad sin costo</p>
+                    </div>
+                    <ul class="text-sm text-slate-500 space-y-2">
+                        <li><i class="fas fa-check text-emerald-400 mr-2"></i>Testing funcional</li>
+                        <li><i class="fas fa-check text-emerald-400 mr-2"></i>Pruebas de usabilidad</li>
+                        <li><i class="fas fa-check text-emerald-400 mr-2"></i>Reportes detallados</li>
+                    </ul>
+                </div>
+                
+                <!-- UX/UI -->
+                <div class="glass-effect rounded-xl p-6 hover-lift group">
+                    <div class="w-14 h-14 gradient-emerald rounded-lg flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
+                        <i class="fas fa-palette text-white text-xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3 text-emerald-400">UX/UI Design</h3>
+                    <p class="text-slate-400 mb-4">Diseños intuitivos y atractivos que priorizan la experiencia del usuario.</p>
+                    <ul class="text-sm text-slate-500 space-y-2">
+                        <li><i class="fas fa-check text-emerald-400 mr-2"></i>Investigación de usuarios</li>
+                        <li><i class="fas fa-check text-emerald-400 mr-2"></i>Prototipado interactivo</li>
+                        <li><i class="fas fa-check text-emerald-400 mr-2"></i>Diseño accesible</li>
+                    </ul>
+                </div>
+                
+                <!-- Mantenimiento -->
+                <div class="glass-effect rounded-xl p-6 hover-lift group">
+                    <div class="w-14 h-14 gradient-emerald rounded-lg flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
+                        <i class="fas fa-tools text-white text-xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3 text-emerald-400">Mantenimiento</h3>
+                    <p class="text-slate-400 mb-4">Soporte continuo para mantener tu sitio web actualizado y funcionando perfectamente.</p>
+                    <ul class="text-sm text-slate-500 space-y-2">
+                        <li><i class="fas fa-check text-emerald-400 mr-2"></i>Actualizaciones de seguridad</li>
+                        <li><i class="fas fa-check text-emerald-400 mr-2"></i>Optimización de rendimiento</li>
+                        <li><i class="fas fa-check text-emerald-400 mr-2"></i>Soporte técnico 24/7</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Formulario de Proyecto Section -->
+    <section id="proyecto" class="py-20 px-6" role="region" aria-labelledby="proyecto-title">
+        <div class="container mx-auto max-w-2xl">
+            <h2 id="proyecto-title" class="text-4xl md:text-5xl font-bold text-center mb-4">
+                Inicia tu <span class="text-gradient">Proyecto</span>
+            </h2>
+            <p class="text-xl text-slate-400 text-center mb-12">Cuéntame qué deseas construir y lo hago realidad</p>
+            
+            <div class="glass-effect rounded-2xl p-8">
+                <form id="projectForm" class="space-y-6" onsubmit="handleSubmit(event)">
+                    <!-- Nombre -->
+                    <div>
+                        <label for="nombre" class="block text-sm font-medium text-slate-300 mb-2">
+                            Nombre Completo <span class="text-emerald-400">*</span>
+                        </label>
+                        <input 
+                            type="text" 
+                            id="nombre" 
+                            name="nombre" 
+                            required
+                            class="w-full px-4 py-3 bg-slate-800 border border-slate-700 rounded-lg text-white placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:border-transparent transition-all duration-300"
+                            placeholder="Tu nombre completo"
+                        >
+                    </div>
+                    
+                    <!-- Correo -->
+                    <div>
+                        <label for="correo" class="block text-sm font-medium text-slate-300 mb-2">
+                            Correo Electrónico <span class="text-emerald-400">*</span>
+                        </label>
+                        <input 
+                            type="email" 
+                            id="correo" 
+                            name="correo" 
+                            required
+                            class="w-full px-4 py-3 bg-slate-800 border border-slate-700 rounded-lg text-white placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:border-transparent transition-all duration-300"
+                            placeholder="tu@email.com"
+                        >
+                    </div>
+                    
+                    <!-- Tipo de Proyecto -->
+                    <div>
+                        <label for="tipoProyecto" class="block text-sm font-medium text-slate-300 mb-2">
+                            Tipo de Proyecto <span class="text-emerald-400">*</span>
+                        </label>
+                        <select 
+                            id="tipoProyecto" 
+                            name="tipoProyecto" 
+                            required
+                            class="w-full px-4 py-3 bg-slate-800 border border-slate-700 rounded-lg text-white focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:border-transparent transition-all duration-300"
+                        >
+                            <option value="">Selecciona una opción</option>
+                            <option value="web-desde-cero">Web desde cero</option>
+                            <option value="testing-qa">Testing/QA</option>
+                            <option value="rediseño">Rediseño</option>
+                            <option value="landing-page">Landing Page</option>
+                            <option value="ux-ui">Diseño UX/UI</option>
+                            <option value="mantenimiento">Mantenimiento Web</option>
+                        </select>
+                    </div>
+                    
+                    <!-- Descripción -->
+                    <div>
+                        <label for="descripcion" class="block text-sm font-medium text-slate-300 mb-2">
+                            Cuéntame qué deseas construir <span class="text-emerald-400">*</span>
+                        </label>
+                        <textarea 
+                            id="descripcion" 
+                            name="descripcion" 
+                            rows="4" 
+                            required
+                            class="w-full px-4 py-3 bg-slate-800 border border-slate-700 rounded-lg text-white placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:border-transparent transition-all duration-300 resize-none"
+                            placeholder="Describe tu proyecto, objetivos, ideas específicas..."
+                        ></textarea>
+                    </div>
+                    
+                    <!-- Presupuesto -->
+                    <div>
+                        <label for="presupuesto" class="block text-sm font-medium text-slate-300 mb-2">
+                            Presupuesto Estimado <span class="text-emerald-400">*</span>
+                        </label>
+                        <select 
+                            id="presupuesto" 
+                            name="presupuesto" 
+                            required
+                            class="w-full px-4 py-3 bg-slate-800 border border-slate-700 rounded-lg text-white focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:border-transparent transition-all duration-300"
+                        >
+                            <option value="">Selecciona un rango</option>
+                            <option value="menos-500">Menos de $500 USD</option>
+                            <option value="500-1000">$500 - $1,000 USD</option>
+                            <option value="1000-2500">$1,000 - $2,500 USD</option>
+                            <option value="2500-5000">$2,500 - $5,000 USD</option>
+                            <option value="5000-10000">$5,000 - $10,000 USD</option>
+                            <option value="mas-10000">Más de $10,000 USD</option>
+                        </select>
+                    </div>
+                    
+                    <!-- Botón de envío -->
+                    <button 
+                        type="submit"
+                        class="w-full gradient-emerald text-white py-4 rounded-lg font-semibold hover:shadow-lg hover:shadow-emerald-500/25 transition-all duration-300 flex items-center justify-center space-x-2"
+                    >
+                        <span>Enviar Solicitud de Proyecto</span>
+                        <i class="fas fa-paper-plane"></i>
+                    </button>
+                </form>
+                
+                <!-- Mensaje de éxito -->
+                <div id="successMessage" class="hidden mt-6 p-4 bg-green-500/20 border border-green-500/30 rounded-lg">
+                    <div class="flex items-center space-x-3">
+                        <i class="fas fa-check-circle text-green-400 text-xl"></i>
+                        <div>
+                            <p class="text-green-400 font-semibold">¡Solicitud enviada con éxito!</p>
+                            <p class="text-green-300 text-sm">Me pondré en contacto contigo pronto.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Footer -->
+    <footer class="py-12 px-6 bg-slate-900/50 border-t border-slate-800" role="contentinfo">
+        <div class="container mx-auto max-w-4xl text-center">
+            <div class="flex justify-center space-x-6 mb-6">
+                <a href="https://github.com/zonkedJ" class="text-slate-400 hover:text-emerald-400 transition-colors duration-300" aria-label="GitHub">
+                    <i class="fab fa-github text-xl"></i>
+                </a>
+                <a href="https://linkedin.com/in/wjohanna-gutierrez" class="text-slate-400 hover:text-emerald-400 transition-colors duration-300" aria-label="LinkedIn">
+                    <i class="fab fa-linkedin text-xl"></i>
+                </a>
+                <a href="mailto:wendygutierrezpinto94@gmail.com" class="text-slate-400 hover:text-emerald-400 transition-colors duration-300" aria-label="Email">
+                    <i class="fas fa-envelope text-xl"></i>
+                </a>
+            </div>
+            
+            <p class="text-slate-500 text-sm">
+                © 2026 WG | Calidad Digital - Desarrollo Web & Testing Profesional
+            </p>
+        </div>
+    </footer>
+    
+    <!-- Modal Galería -->
+    <div id="galleryModal" class="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4" onclick="closeModalOnBackdrop(event)">
+        <div class="glass-effect rounded-2xl max-w-4xl w-full max-h-[90vh] overflow-hidden border border-emerald-500/30">
+            <!-- Header del Modal -->
+            <div class="flex justify-between items-center p-4 border-b border-white/10">
+                <h3 id="galleryTitle" class="text-xl font-bold text-emerald-400">Galería de Proyecto</h3>
+                <button onclick="closeGallery()" class="text-white hover:text-emerald-400 transition-colors duration-300">
+                    <i class="fas fa-times text-xl"></i>
+                </button>
+            </div>
+            
+            <!-- Contenido de la Galería -->
+            <div class="relative p-4">
+                <div class="flex items-center justify-center">
+                    <button onclick="previousImage()" class="absolute left-2 text-white hover:text-emerald-400 transition-colors duration-300 bg-black/50 rounded-full w-10 h-10 flex items-center justify-center">
+                        <i class="fas fa-chevron-left"></i>
+                    </button>
+                    
+                    <img id="galleryImage" src="" alt="Imagen del proyecto" class="max-w-full max-h-[60vh] object-contain rounded-lg">
+                    
+                    <button onclick="nextImage()" class="absolute right-2 text-white hover:text-emerald-400 transition-colors duration-300 bg-black/50 rounded-full w-10 h-10 flex items-center justify-center">
+                        <i class="fas fa-chevron-right"></i>
+                    </button>
+                </div>
+                
+                <!-- Indicadores -->
+                <div class="flex justify-center mt-4 space-x-2">
+                    <div id="galleryIndicators" class="flex space-x-2"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        // Toggle menú móvil
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobileMenu');
+            menu.classList.toggle('hidden');
+        }
+        
+        // Smooth scroll para navegación
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                    // Cerrar menú móvil si está abierto
+                    const mobileMenu = document.getElementById('mobileMenu');
+                    if (!mobileMenu.classList.contains('hidden')) {
+                        mobileMenu.classList.add('hidden');
+                    }
+                }
+            });
+        });
+        
+        // Manejo del formulario
+        function handleSubmit(event) {
+            event.preventDefault();
+            
+            // Obtener datos del formulario
+            const formData = new FormData(event.target);
+            const data = Object.fromEntries(formData);
+            
+            // Simular envío (en producción, aquí iría la llamada a un backend)
+            console.log('Datos del formulario:', data);
+            
+            // Mostrar mensaje de éxito
+            const successMessage = document.getElementById('successMessage');
+            successMessage.classList.remove('hidden');
+            
+            // Resetear formulario
+            event.target.reset();
+            
+            // Ocultar mensaje después de 5 segundos
+            setTimeout(() => {
+                successMessage.classList.add('hidden');
+            }, 5000);
+            
+            // Scroll al mensaje de éxito
+            successMessage.scrollIntoView({
+                behavior: 'smooth',
+                block: 'center'
+            });
+        }
+        
+        // Animación de elementos al hacer scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animate-fadeInUp');
+                }
+            });
+        }, observerOptions);
+        
+        // Observar todas las secciones
+        document.querySelectorAll('section').forEach(section => {
+            observer.observe(section);
+        });
+        
+        // Efecto parallax suave en el hero
+        window.addEventListener('scroll', () => {
+            const scrolled = window.pageYOffset;
+            const hero = document.querySelector('#inicio');
+            if (hero) {
+                hero.style.transform = `translateY(${scrolled * 0.3}px)`;
+            }
+        });
+        
+        // Validación de formulario en tiempo real
+        const form = document.getElementById('projectForm');
+        const inputs = form.querySelectorAll('input, select, textarea');
+        
+        inputs.forEach(input => {
+            input.addEventListener('blur', () => {
+                if (input.hasAttribute('required') && !input.value.trim()) {
+                    input.classList.add('border-red-500');
+                } else {
+                    input.classList.remove('border-red-500');
+                }
+            });
+            
+            input.addEventListener('input', () => {
+                if (input.classList.contains('border-red-500') && input.value.trim()) {
+                    input.classList.remove('border-red-500');
+                }
+            });
+        });
+        
+        // Galería de Proyectos
+        let currentGallery = '';
+        let currentImageIndex = 0;
+        
+        const galleries = {
+            veterinaria: {
+                title: 'Veterinaria E-clinic - Galería',
+                images: ['veterinaria1.png', 'veterinaria2.png', 'veterinaria3.png', 'veterinaria4.png']
+            },
+            farmacia: {
+                title: 'Farmacia Digital - Galería',
+                images: ['farmacia.png', 'farmacia1.png', 'farmacia2.png']
+            }
+        };
+        
+        function openGallery(galleryName) {
+            currentGallery = galleryName;
+            currentImageIndex = 0;
+            
+            const gallery = galleries[galleryName];
+            const modal = document.getElementById('galleryModal');
+            const title = document.getElementById('galleryTitle');
+            const image = document.getElementById('galleryImage');
+            const indicators = document.getElementById('galleryIndicators');
+            
+            title.textContent = gallery.title;
+            updateGalleryImage();
+            updateIndicators();
+            
+            modal.classList.remove('hidden');
+            document.body.style.overflow = 'hidden';
+        }
+        
+        function closeGallery() {
+            const modal = document.getElementById('galleryModal');
+            modal.classList.add('hidden');
+            document.body.style.overflow = 'auto';
+        }
+        
+        function closeModalOnBackdrop(event) {
+            if (event.target === event.currentTarget) {
+                closeGallery();
+            }
+        }
+        
+        function updateGalleryImage() {
+            const gallery = galleries[currentGallery];
+            const image = document.getElementById('galleryImage');
+            image.src = gallery.images[currentImageIndex];
+            updateIndicators();
+        }
+        
+        function updateIndicators() {
+            const gallery = galleries[currentGallery];
+            const indicators = document.getElementById('galleryIndicators');
+            
+            indicators.innerHTML = '';
+            gallery.images.forEach((_, index) => {
+                const dot = document.createElement('div');
+                dot.className = `w-2 h-2 rounded-full transition-colors duration-300 ${
+                    index === currentImageIndex ? 'bg-emerald-400' : 'bg-white/30'
+                }`;
+                indicators.appendChild(dot);
+            });
+        }
+        
+        function nextImage() {
+            const gallery = galleries[currentGallery];
+            currentImageIndex = (currentImageIndex + 1) % gallery.images.length;
+            updateGalleryImage();
+        }
+        
+        function previousImage() {
+            const gallery = galleries[currentGallery];
+            currentImageIndex = (currentImageIndex - 1 + gallery.images.length) % gallery.images.length;
+            updateGalleryImage();
+        }
+        
+        // Navegación con teclado
+        document.addEventListener('keydown', (event) => {
+            const modal = document.getElementById('galleryModal');
+            if (!modal.classList.contains('hidden')) {
+                if (event.key === 'Escape') {
+                    closeGallery();
+                } else if (event.key === 'ArrowRight') {
+                    nextImage();
+                } else if (event.key === 'ArrowLeft') {
+                    previousImage();
+                }
+            }
+        });
+    </script>
+</body>
+</html>
